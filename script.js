@@ -140,8 +140,3 @@ function openBookDetail(book) {
         document.body.removeChild(modal); // Menghapus modal dari body
     });
 }
-// Balasan Form Contact //
-<script>
-    alert("Pesan Anda telah dikirim!");
-    window.location.href = "contact.html"; // Kembali ke halaman kontak
-</script>
