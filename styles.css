@@ -90,3 +90,118 @@ footer {
 .book-item:hover {
     background-color: #f0f0f0; /* Warna latar belakang saat hover */
 }
+@keyframes slideIn {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideOut {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+}
+
+.welcome-message {
+    animation: slideIn 0.5s forwards; /* Animasi masuk */
+}
+
+.welcome-message.fade-out {
+    animation: slideOut 0.5s forwards; /* Animasi keluar */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+h1, h2 {
+    text-align: center;
+}
+
+input, select, button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.book-item {
+    background: #fff;
+    padding: 15px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+iframe {
+    border: none;
+}
+
+button {
+    background: #28a745;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background: #00796b;
+    color: white;
+}
+/* Gaya dasar untuk footer */
+#footer {
+    background-color: #00796b; /* Warna latar belakang */
+    color: white; /* Warna teks */
+    text-align: center; /* Teks rata tengah */
+    padding: 20px; /* Padding */
+    position: relative; /* Posisi relatif untuk animasi */
+}
+body {
+    margin: 0;
+    overflow: auto;
+    background: linear-gradient(45deg, #2DAA9E, #C1D8C3);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: -1;
+}
