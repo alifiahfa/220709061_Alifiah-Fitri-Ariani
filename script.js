@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", function() {
     const welcomeMessage = document.createElement('div');
     welcomeMessage.textContent = message;
     welcomeMessage.style.position = "fixed";
-    welcomeMessage.style.top = "10px"; // Posisi vertikal di atas
+    welcomeMessage.style.top = "20px"; // Posisi vertikal di atas
     welcomeMessage.style.left = "50%"; // Posisi horizontal di tengah
     welcomeMessage.style.transform = "translateX(-50%)"; // Menggeser elemen ke tengah
-    welcomeMessage.style.backgroundColor = "#004d40"; // Warna senada dengan header
+    welcomeMessage.style.backgroundColor = "#508C9B"; // Warna senada dengan header
     welcomeMessage.style.color = "white";
     welcomeMessage.style.padding = "20px 40px"; // Padding lebih besar
     welcomeMessage.style.borderRadius = "10px"; // Sudut lebih melengkung
@@ -114,7 +114,7 @@ function openBookDetail(book) {
     modal.style.left = "0";
     modal.style.width = "100%";
     modal.style.height = "100%";
-    modal.style.backgroundColor = "rgba(0, 0, 0, 0.7)"; // Latar belakang transparan
+    modal.style.backgroundColor = "rgba(80, 140, 155, 0.61)"; // Latar belakang transparan
     modal.style.display = "flex";
     modal.style.alignItems = "center";
     modal.style.justifyContent = "center";
@@ -125,7 +125,7 @@ function openBookDetail(book) {
     modalContent.style.backgroundColor = "white";
     modalContent.style.padding = "20px";
     modalContent.style.borderRadius = "10px";
-    modalContent.style.boxShadow = "0 4px 20px rgba(0, 0, 0, 0.3)";
+    modalContent.style.boxShadow = "0 4px 20px rgb(80, 140, 155)";
     modalContent.style.maxWidth = "500px";
     modalContent.style.width = "100%";
 
@@ -134,9 +134,9 @@ function openBookDetail(book) {
         <h2>${book.title}</h2>
         <img src="${book.cover}" alt="${book.title} Cover" style="width: 100px; height: auto; margin-bottom: 10px;">
         <p>${book.description}</p>
-        <a href="${book.pdf}" target="_blank" style="display: inline-block; margin-bottom: 10px; padding: 10px 15px; background-color: #00796b; color: white; text-decoration: none; border-radius: 5px;">Baca PDF</a>
-        <button id="downloadButton" style="padding: 10px 15px; background-color: #00796b; color: white; border: none; border-radius: 5px; cursor: pointer;">Download PDF</button>
-        <button id="closeModal" style="padding: 10px 15px; background-color: #00796b; color: white; border: none; border-radius: 5px; cursor: pointer;">Tutup</button>
+        <a href="${book.pdf}" target="_blank" style="display: inline-block; margin-bottom: 10px; padding: 10px 15px; background-color: #508C9B; color: white; text-decoration: none; border-radius: 5px;">Baca PDF</a>
+        <button id="downloadButton" style="padding: 10px 15px; background-color: #508C9B; color: white; border: none; border-radius: 5px; cursor: pointer;">Download PDF</button>
+        <button id="closeModal" style="padding: 10px 15px; background-color: #134B70; color: white; border: none; border-radius: 5px; cursor: pointer;">Tutup</button>
     `;
 
     modal.appendChild(modalContent);
