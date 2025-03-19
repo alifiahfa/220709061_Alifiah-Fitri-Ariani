@@ -4,78 +4,137 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us - Perpustakaan Alifiah Fitri Ariani</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@300;400;700&display=swap">
     <style>
+        /* Global Styles */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Public Sans', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #e0f7fa; /* Warna latar belakang */
-            color: #333;
+            background-color: #EEEEEE; /* Warna latar belakang */
+            color: #134B70; /* Warna teks utama */
             display: flex;
             flex-direction: column;
-            min-height: 100vh; /* Memastikan footer di bagian bawah */
+            min-height: 100vh;
         }
+
+        /* Header */
         header {
-            background-color: #00796b; /* Warna header */
+            background-color: #134B70;
             color: white;
-            padding: 10px 20px;
+            padding: 20px;
             text-align: center;
         }
+
         nav {
-            position: absolute;
-            top: 20px;
-            right: 20px;
+            margin-top: 10px;
         }
+
         nav a {
-            margin: 0 10px;
             color: white;
+            margin: 0 15px;
             text-decoration: none;
-            transition: color 0.3s; /* Transisi warna */
+            font-weight: bold;
+            transition: color 0.3s;
         }
+
         nav a:hover {
-            color: #ffeb3b; /* Warna saat hover */
+            color: #508C9B; /* Warna hover */
         }
+
+        /* Container */
         .container {
-            max-width: 800px; /* Lebar maksimum kontainer */
-            margin: 20px auto; /* Pusatkan kontainer */
+            max-width: 800px;
+            margin: 20px auto;
             padding: 20px;
-            background-color: #ffffff; /* Warna latar belakang kontainer */
-            border-radius: 8px; /* Sudut melengkung */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Bayangan */
-            flex: 1; /* Memungkinkan kontainer mengisi ruang yang tersedia */
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            flex: 1;
         }
+
+        /* Judul & Subjudul */
         h1 {
-            color: #004d40; /* Warna judul */
-            margin-bottom: 10px; /* Spasi bawah judul */
+            font-weight: bold;
+            color: #508C9B;
         }
+
         h2 {
-            color: #00796b; /* Warna subjudul */
-            margin-top: 20px; /* Spasi atas subjudul */
-            margin-bottom: 10px; /* Spasi bawah subjudul */
+            color: #134B70;
         }
+
+        h3 {
+            color: #134B70;
+        }
+
+        /* Tabel */
         table {
             width: 100%;
             border-collapse: collapse;
             margin-top: 20px;
         }
+
         table, th, td {
             border: 1px solid #ddd;
         }
+
         th, td {
-            padding: 8px;
+            padding: 10px;
             text-align: left;
         }
+
         th {
-            background-color: #00796b; /* Warna header tabel */
-            color: white;
+            background-color: #134B70; /* Warna header tabel */
+            color: #EEEEEE;
         }
+
+        /* Footer */
         footer {
+            background-color: #134B70;
+            color: #508C9B;
             text-align: center;
-            padding: 10px;
-            background-color: #00796b; /* Warna footer */
-            color: white;
+            padding: 15px;
             font-size: 0.8em;
+            margin-top: 20px;
+            font-weight: bold
         }
+        .container {
+    opacity: 0; /* Awalnya tidak terlihat */
+    transform: translateY(20px); /* Mulai dari sedikit ke bawah */
+    animation: fadeIn 1s ease-out forwards;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+nav {
+    display: flex;
+    justify-content: center; /* Agar menu tetap rata tengah */
+    gap: 15px; /* Jarak antar menu */
+}
+
+nav a.nav-link {
+    color: #EEEEEE;
+    text-decoration: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, padding 0.3s ease;
+    display: inline-block; /* Pastikan tetap horizontal */
+}
+
+nav a.nav-link:hover {
+    background-color: #79D7BE; /* Warna saat hover */
+    color: #EEEEEE; /* Warna teks tetap */
+    padding: 8px 16px; /* Tidak berubah ukuran agar tetap rapi */
+    border-radius: 8px;
+}
     </style>
 </head>
 <body>
@@ -83,8 +142,8 @@
 <header>
     <h1>About Us</h1>
     <nav>
-        <a href="index.html">Home</a>
-        <a href="contact.html">Contact Us</a>
+        <a class="nav-link" href="index.html">Home</a>
+        <a class="nav-link" href="contact.html">Contact Us</a>
     </nav>
 </header>
 
@@ -122,4 +181,10 @@
 </div>
 
 <footer>
-    <p>&copy; 2025 Perpustakaan Alifiah Fitri Ariani
+    <p>&copy; 2025 Perpustakaan Alifiah Fitri Ariani</p>
+</footer>
+<div id="message"></div>
+<script src="script.js"></script>
+
+</body>
+</html>
