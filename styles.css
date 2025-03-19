@@ -12,25 +12,28 @@ body {
 header {
     background-color: #00796b; /* Warna header */
     color: white;
-    padding: 10px 20px;
+    padding: 20px;
     text-align: center;
+    display: flex;
+    flex-direction: column; /* Menyusun elemen dalam kolom */
+    align-items: center; /* Tengahkan konten */
 }
 
 nav {
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    margin-top: 10px; /* Jarak antara <h1> dan navigasi */
+    white-space: nowrap; /* Mencegah teks turun ke bawah */
 }
 
 nav a {
-    margin: 0 10px;
+    display: inline-block; /* Pastikan link tetap dalam satu baris */
+    margin: 0 15px;
     color: white;
     text-decoration: none;
-    transition: color 0.3s; /* Transisi warna */
+    transition: color 0.3s;
+    font-weight: bold;
 }
-
 nav a:hover {
-    color: #ffeb3b; /* Warna saat hover */
+    color: #ffeb3b;
 }
 
 .container {
