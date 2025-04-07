@@ -32,11 +32,11 @@
 
         nav a {
             padding: 8px 12px; /* Tambahkan ruang agar lebih mudah diklik */
-        font-size: 14px; /* Ukuran teks menyesuaikan */
-        white-space: nowrap; /* Cegah teks terpotong */
-    padding: 10px;
-    background-color: #201E43; /* Warna latar belakang menu */
-    border-radius: 5px; /* Sedikit melengkung */
+            font-size: 14px; /* Ukuran teks menyesuaikan */
+            white-space: nowrap; /* Cegah teks terpotong */
+            padding: 10px;
+            background-color: #201E43; /* Warna latar belakang menu */
+            border-radius: 5px; /* Sedikit melengkung */
         }
 
         nav a:hover {
@@ -89,6 +89,25 @@
             color: #EEEEEE;
         }
 
+        /* Event Section */
+        .event {
+            margin-top: 30px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        .event img {
+    width: 80%; /* Lebar gambar 80% dari kontainer */
+    height: auto; /* Tinggi otomatis untuk menjaga rasio */
+    aspect-ratio: 4 / 5; /* Mengatur rasio aspek 4:5 */
+    object-fit: cover; /* Memastikan gambar terpotong dengan baik */
+    border-radius: 5px;
+    display: block; /* Agar gambar tidak memiliki ruang di bawahnya */
+    margin: 0 auto; /* Agar gambar berada di tengah */
+}
+
         /* Footer */
         footer {
             background-color: #134B70;
@@ -97,45 +116,47 @@
             padding: 15px;
             font-size: 0.8em;
             margin-top: 20px;
-            font-weight: bold
+            font-weight: bold;
         }
+
         .container {
-    opacity: 0; /* Awalnya tidak terlihat */
-    transform: translateY(20px); /* Mulai dari sedikit ke bawah */
-    animation: fadeIn 1s ease-out forwards;
-}
+            opacity: 0; /* Awalnya tidak terlihat */
+            transform: translateY(20px); /* Mulai dari sedikit ke bawah */
+            animation: fadeIn 1s ease-out forwards;
+        }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(20px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-nav {
-    display: flex;
-    justify-content: center; /* Agar menu tetap rata tengah */
-    gap: 15px; /* Jarak antar menu */
-}
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-nav a.nav-link {
-    color: #EEEEEE;
-    text-decoration: none;
-    padding: 8px 16px;
-    border-radius: 8px;
-    transition: background-color 0.3s ease, padding 0.3s ease;
-    display: inline-block; /* Pastikan tetap horizontal */
-}
+        nav {
+            display: flex;
+            justify-content: center; /* Agar menu tetap rata tengah */
+            gap: 15px; /* Jarak antar menu */
+        }
 
-nav a.nav-link:hover {
-    background-color: #79D7BE; /* Warna saat hover */
-    color: #EEEEEE; /* Warna teks tetap */
-    padding: 8px 16px; /* Tidak berubah ukuran agar tetap rapi */
-    border-radius: 8px;
-}
+        nav a.nav-link {
+            color: #EEEEEE;
+            text-decoration: none;
+            padding: 8px 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s ease, padding 0.3s ease;
+            display: inline-block; /* Pastikan tetap horizontal */
+        }
+
+        nav a.nav-link:hover {
+            background-color: #79D7BE; /* Warna saat hover */
+            color: #EEEEEE; /* Warna teks tetap */
+            padding: 8px 16px; /* Tidak berubah ukuran agar tetap rapi */
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
@@ -179,6 +200,13 @@ nav a.nav-link:hover {
             <td>Genap 2024/2025</td>
         </tr>
     </table>
+
+    <!-- Bagian Event -->
+    <div class="event">
+        <h3>Event Terbaru</h3>
+        <img src="c:\Users\HP\OneDrive\Gambar\Screenshot\Screenshot 2025-04-07 141603.png" alt="Lomba Resensi Buku 2025">
+        <p>Untuk informasi lebih lanjut, kunjungi <a href="https://www.instagram.com/p/DHqN_Ncv3Ve/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==">tautan ini</a>.</p>
+    </div>
 </div>
 
 <footer>
