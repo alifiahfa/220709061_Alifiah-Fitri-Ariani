@@ -242,6 +242,4 @@ document.addEventListener("DOMContentLoaded", function () {
   `;
   document.head.appendChild(style);
 });
-if (window.location.href==="https://alifiahfa.github.io/220709061_Alifiah-Fitri-Ariani/") {
-    window.location.href = "https://alifiahfa.vercel.app/"; 
-}
+
