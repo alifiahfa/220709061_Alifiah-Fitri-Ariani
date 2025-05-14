@@ -199,3 +199,237 @@ canvas {
     color: #508C9B; /* Warna teks animasi */
     font-weight: bold; /* Opsional: Agar lebih terlihat */
 }
+    body {
+      font-family: 'Public Sans', sans-serif;
+      background-color: #EEEEEE;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .navbar {
+      background-color: #134B70;
+    }
+    .navbar .nav-link, .navbar-brand {
+      color: #EEEEEE !important;
+    }
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      background-image: url('https://tagajo.city-library.jp/media/001/202211/tagajo_library_039.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+      z-index: 0;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .hero-section .container {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-section h1, .hero-section p {
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    }
+    h2 { color: #134B70; font-weight: bold; }
+    h3 { color: #134B70; font-weight: bold; }
+    p { color: #1771ad; }
+    .event-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .event-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .image-wrapper {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 5px 5px 0 0;
+    }
+    .card-img-top {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    footer {
+      background-color: #134B70;
+      color: #EEEEEE;
+    }
+    /* Paragraf di dalam hero-section (mode terang) */
+.hero-section p {
+  color: #dddddd; /* Abu terang agar kontras dengan background hero */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Memperjelas di atas background gelap */
+}
+
+    body.dark-mode {
+      background-color: #121212;
+      color: #EEEEEE;
+    }
+    /* Paragraf hero-section di mode gelap */
+body.dark-mode .hero-section p {
+  color: #90caf9; /* Biru pastel agar lembut dan kontras */
+}
+
+/* Paragraf biasa (konten) di mode gelap */
+body.dark-mode p {
+  color: #f0f0f0;
+}
+    body.dark-mode .navbar {
+      background-color: #134B70;
+    }
+    body.dark-mode .navbar .nav-link, body.dark-mode .navbar-brand,
+    body.dark-mode h2, body.dark-mode h3, body.dark-mode p {
+      color: #EEEEEE !important;
+    }
+   .dark-mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #134B70;
+  border: none;
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Warna tombol mode gelap di mode terang */
+.dark-mode-toggle {
+  background-color: #3E6D9C; /* Warna sedikit berbeda dari navbar/footer */
+}
+
+/* Warna tombol mode gelap di mode gelap */
+body.dark-mode .dark-mode-toggle {
+  background-color: #2E3B4E; /* Warna gelap tetapi tetap berbeda dari footer */
+  color: #90caf9; /* Warna ikon agar tetap kontras dan selaras */
+}
+      /* Hover Tombol Cari Buku dan Event Terbaru agar seragam */
+.btn.btn-light.btn-lg:hover,
+.btn.btn-outline-light.btn-lg:hover {
+  background-color: #508C9B !important;
+  color: white !important;
+  border-color: #508C9B !important;
+}
+
+/* Mode Gelap Diselaraskan */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode .navbar {
+  background-color: #1f2d3d !important;
+}
+
+body.dark-mode footer {
+  background-color: #1f2d3d;
+  color: #90caf9;
+}
+
+body.dark-mode .nav-link,
+body.dark-mode .navbar-brand,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+  color: #f0f0f0 !important;
+}
+
+body.dark-mode a.btn,
+body.dark-mode a.btn-outline-info {
+  border-color: #90caf9;
+  color: #90caf9;
+}
+
+body.dark-mode a.btn:hover,
+body.dark-mode a.btn-outline-info:hover {
+  background-color: #90caf9;
+  color: #121212;
+}
+   .btn-outline-info {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.btn-outline-info:hover {
+  background-color: #508C9B;
+  color: white;
+  border-color: #508C9B;
+} 
+/* Tombol "Informasi Lebih Lanjut" - warna beda */
+.btn-outline-custom {
+  color: #508C9B;
+  border-color: #508C9B;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+  background-color: #508C9B;
+  color: white;
+  border-color: #508C9B;
+}
+
+/* Warna saat dark mode */
+body.dark-mode .btn-outline-custom {
+  color: #ffffff;
+  border-color: #508C9B;
+}
+
+body.dark-mode .btn-outline-custom:hover {
+  background-color: #508C9B;
+  color: #121212;
+  border-color: #508C9B;
+}
+/* Event Card text saat mode gelap */
+body.dark-mode .event-card .card-body {
+  background-color: #1e1e1e; /* Opsional: beri latar gelap agar selaras */
+  color: #f0f0f0;
+}
+
+body.dark-mode .event-card .card-title,
+body.dark-mode .event-card .card-text {
+  color: #f0f0f0; /* Teks terang */
+}
+body.dark-mode .event-card {
+  background-color: #2a2a2a;
+}
+/* === Tulisan Event Card saat Mode Gelap === */
+body.dark-mode .event-card .card-body {
+  background-color: #1e1e1e; /* Warna latar belakang kartu */
+  color: #f0f0f0; /* Warna teks default (fallback) */
+}
+
+body.dark-mode .event-card .card-title {
+  color: #90caf9; /* Warna biru pastel untuk judul */
+}
+
+body.dark-mode .event-card .card-text {
+  color: #e0e0e0; /* Warna abu terang untuk deskripsi */
+}
+body.dark-mode .event-card {
+  background-color: #2a2a2a;
+}
+/* Warna ikon burger saat mode terang (optional, jika ingin konsisten) */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Warna ikon burger saat mode gelap */
+body.dark-mode .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
