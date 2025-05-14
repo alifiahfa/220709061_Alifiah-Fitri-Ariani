@@ -1,170 +1,369 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home | Alifiahfa's Library</title>
-    <link rel="icon" href="books.png" type="image/x-icon" />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Link ke Bootstrap -->
-    <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet"> <!-- Link ke Public Sans -->
-    <link rel="stylesheet" href="styles.css"> <!-- Link ke file CSS eksternal -->
-    <style>
-        body {
-            font-family: 'Public Sans', sans-serif;
-            background-color: #EEEEEE; /* Warna latar belakang */
-        }
-        h1, h2, h3 {
-            font-weight: bold; /* Menebalkan semua judul */
-        }
-        h2 {
-            color: #201E43; /* Warna untuk h2 */
-        }
-        h3 {
-            color: #134B70; /* Warna untuk h3 */
-        }
-        p {
-            color: #201E43; /* Warna untuk paragraf */
-        }
-        .container {
-            opacity: 0; /* Awalnya tidak terlihat */
-            transform: translateY(20px); /* Mulai dari sedikit ke bawah */
-            animation: fadeIn 1s ease-out forwards;
-        }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home | Alifiahfa's Library</title>
+  <link rel="icon" href="books.png" type="image/x-icon" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.12.1/font/bootstrap-icons.min.css" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap" rel="stylesheet" />
 
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-        nav {
-            display: flex;
-            justify-content: center; /* Agar menu tetap rata tengah */
-            gap: 15px; /* Jarak antar menu */
-        }
+  <style>
+    body {
+      font-family: 'Public Sans', sans-serif;
+      background-color: #EEEEEE;
+      margin: 0;
+      padding: 0;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .navbar {
+      background-color: #134B70;
+    }
+    .navbar .nav-link, .navbar-brand {
+      color: #EEEEEE !important;
+    }
+    .hero-section {
+      position: relative;
+      min-height: 100vh;
+      background-image: url('https://tagajo.city-library.jp/media/001/202211/tagajo_library_039.jpg');
+      background-size: cover;
+      background-position: center;
+      background-repeat: no-repeat;
+      display: flex;
+      align-items: center;
+      text-align: center;
+      color: white;
+      z-index: 0;
+    }
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      z-index: 1;
+    }
+    .hero-section .container {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-section h1, .hero-section p {
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+    }
+    h2 { color: #134B70; font-weight: bold; }
+    h3 { color: #134B70; font-weight: bold; }
+    p { color: #1771ad; }
+    .event-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+    .event-card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    .image-wrapper {
+      aspect-ratio: 4 / 5;
+      overflow: hidden;
+      border-radius: 5px 5px 0 0;
+    }
+    .card-img-top {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    footer {
+      background-color: #134B70;
+      color: #EEEEEE;
+    }
+    /* Paragraf di dalam hero-section (mode terang) */
+.hero-section p {
+  color: #dddddd; /* Abu terang agar kontras dengan background hero */
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Memperjelas di atas background gelap */
+}
 
-        nav a.nav-link {
-            color: #EEEEEE;
-            text-decoration: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            transition: background-color 0.3s ease, padding 0.3s ease;
-            display: inline-block; /* Pastikan tetap horizontal */
-        }
+    body.dark-mode {
+      background-color: #121212;
+      color: #EEEEEE;
+    }
+    /* Paragraf hero-section di mode gelap */
+body.dark-mode .hero-section p {
+  color: #90caf9; /* Biru pastel agar lembut dan kontras */
+}
 
-        nav a.nav-link:hover {
-            background-color: #79D7BE; /* Warna saat hover */
-            color: #EEEEEE; /* Warna teks tetap */
-            padding: 8px 16px; /* Tidak berubah ukuran agar tetap rapi */
-            border-radius: 8px;
-        }
-        .event-card {
-            cursor: pointer;
-            transition: transform 0.2s;
-        }
+/* Paragraf biasa (konten) di mode gelap */
+body.dark-mode p {
+  color: #f0f0f0;
+}
+    body.dark-mode .navbar {
+      background-color: #134B70;
+    }
+    body.dark-mode .navbar .nav-link, body.dark-mode .navbar-brand,
+    body.dark-mode h2, body.dark-mode h3, body.dark-mode p {
+      color: #EEEEEE !important;
+    }
+   .dark-mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #134B70;
+  border: none;
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* Warna tombol mode gelap di mode terang */
+.dark-mode-toggle {
+  background-color: #3E6D9C; /* Warna sedikit berbeda dari navbar/footer */
+}
 
-        .event-card:hover {
-            transform: scale(1.05);
-        }
+/* Warna tombol mode gelap di mode gelap */
+body.dark-mode .dark-mode-toggle {
+  background-color: #2E3B4E; /* Warna gelap tetapi tetap berbeda dari footer */
+  color: #90caf9; /* Warna ikon agar tetap kontras dan selaras */
+}
+      /* Hover Tombol Cari Buku dan Event Terbaru agar seragam */
+.btn.btn-light.btn-lg:hover,
+.btn.btn-outline-light.btn-lg:hover {
+  background-color: #508C9B !important;
+  color: white !important;
+  border-color: #508C9B !important;
+}
 
-        .image-wrapper {
-            aspect-ratio: 4 / 5;
-            overflow: hidden;
-            border-radius: 5px 5px 0 0;
-        }
+/* Mode Gelap Diselaraskan */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
 
-        .image-wrapper img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            display: block;
-        }
+body.dark-mode .navbar {
+  background-color: #1f2d3d !important;
+}
 
-        .event-card {
-            cursor: pointer;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+body.dark-mode footer {
+  background-color: #1f2d3d;
+  color: #90caf9;
+}
 
-        .event-card:hover {
-            transform: scale(1.03);
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-        }
-    </style>
+body.dark-mode .nav-link,
+body.dark-mode .navbar-brand,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+  color: #f0f0f0 !important;
+}
+
+body.dark-mode a.btn,
+body.dark-mode a.btn-outline-info {
+  border-color: #90caf9;
+  color: #90caf9;
+}
+
+body.dark-mode a.btn:hover,
+body.dark-mode a.btn-outline-info:hover {
+  background-color: #90caf9;
+  color: #121212;
+}
+   .btn-outline-info {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.btn-outline-info:hover {
+  background-color: #508C9B;
+  color: white;
+  border-color: #508C9B;
+} 
+/* Tombol "Informasi Lebih Lanjut" - warna beda */
+.btn-outline-custom {
+  color: #508C9B;
+  border-color: #508C9B;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+  background-color: #508C9B;
+  color: white;
+  border-color: #508C9B;
+}
+
+/* Warna saat dark mode */
+body.dark-mode .btn-outline-custom {
+  color: #ffffff;
+  border-color: #508C9B;
+}
+
+body.dark-mode .btn-outline-custom:hover {
+  background-color: #508C9B;
+  color: #121212;
+  border-color: #508C9B;
+}
+/* Event Card text saat mode gelap */
+body.dark-mode .event-card .card-body {
+  background-color: #1e1e1e; /* Opsional: beri latar gelap agar selaras */
+  color: #f0f0f0;
+}
+
+body.dark-mode .event-card .card-title,
+body.dark-mode .event-card .card-text {
+  color: #f0f0f0; /* Teks terang */
+}
+body.dark-mode .event-card {
+  background-color: #2a2a2a;
+}
+/* === Tulisan Event Card saat Mode Gelap === */
+body.dark-mode .event-card .card-body {
+  background-color: #1e1e1e; /* Warna latar belakang kartu */
+  color: #f0f0f0; /* Warna teks default (fallback) */
+}
+
+body.dark-mode .event-card .card-title {
+  color: #90caf9; /* Warna biru pastel untuk judul */
+}
+
+body.dark-mode .event-card .card-text {
+  color: #e0e0e0; /* Warna abu terang untuk deskripsi */
+}
+body.dark-mode .event-card {
+  background-color: #2a2a2a;
+}
+/* Warna ikon burger saat mode terang (optional, jika ingin konsisten) */
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Warna ikon burger saat mode gelap */
+body.dark-mode .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+  </style>
 </head>
 <body>
 
-<header style="background-color: #134B70; color: #EEEEEE;" class="text-center py-4">
-    <h1>Perpustakaan Alifiah Fitri Ariani</h1>
-    <nav>
-        <a class="nav-link" href="index.html">Homepage</a>
-        <a class="nav-link" href="about.html">About Us</a>
-        <a class="nav-link" href="contact.html">Contact Us</a>
-        <a class="nav-link" href="tabel_perkalian.php">Fun Area</a> <!-- Hyperlink ke perkalian.php -->
-        <a class="nav-link" href="formulir_pengunjung.php">Pengunjung Perpustakaan</a> <!-- Hyperlink ke formulir_pengunjung.php -->
-    </nav>    
-</header>
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="index.html">
+      <img src="books.png" alt="Logo" height="30" /> Alifiahfa's Library
+    </a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="index.html"><i class="bi bi-house"></i> Homepage</a></li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-info-circle"></i> About Us</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-envelope"></i> Contact Us</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            <i class="bi bi-code-slash"></i> Output PHP
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="tabel_perkalian.php"><i class="bi bi-grid-3x3-gap-fill"></i> Tabel Perkalian</a></li>
+            <li><a class="dropdown-item" href="formulir_pengunjung.php"><i class="bi bi-people-fill"></i> Data Pengunjung</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
 
-<div class="container mt-4">
-    <section id="home">
-        <h2>Selamat Datang di Perpustakaan Alifiah Fitri Ariani!</h2>
-        <p>Di sini, Anda akan menemukan repositori tugas-tugas yang saya kumpulkan selama mengikuti mata kuliah Pengembangan Web.</p>
-        
-        <h3>Apa yang Ada di Sini?</h3>
-        <ul>
-            <li><strong>Repositori Tugas:</strong> Temukan berbagai tugas yang telah saya kerjakan, mulai dari proyek desain web hingga aplikasi sederhana. Setiap tugas dilengkapi dengan penjelasan singkat tentang tujuan dan hasilnya.</li>
-            <li><strong>Sumber Daya Pembelajaran:</strong> Kami juga menyediakan beberapa sumber daya yang dapat membantu Anda memahami lebih lanjut tentang pengembangan web, seperti artikel dan tutorial.</li>
-            <li><strong>Kolaborasi Perpustakaan:</strong> Kami bekerja sama dengan perpustakaan lain untuk memberikan akses lebih luas ke koleksi buku dan sumber daya. <a href="https://library.usu.ac.id/" target="_blank">Perpustakaan Universitas Sumatera Utara</a></li>
-        </ul>
+<section class="hero-section">
+  <div class="container">
+    <h1 class="display-4 fw-bold">Selamat Datang di Perpustakaan Alifiah</h1>
+    <p class="lead">Repositori tugas Pengembangan Web: eksplorasi, praktik, dan hasil belajar saya.</p>
+    <div class="mt-4">
+      <a href="#cariBuku" class="btn btn-outline-info btn-lg me-3"><i class="bi bi-search"></i> Cari Buku</a>
+<a href="#eventTerbaru" class="btn btn-outline-info btn-lg"><i class="bi bi-calendar-event-fill"></i> Event Terbaru</a>
+    </div>
+  </div>
+</section>
 
-        <h3>Cari Buku</h3>
-        <p>Gunakan fitur pencarian di bawah ini untuk menemukan buku yang Anda inginkan. Kami memiliki berbagai koleksi buku yang dapat Anda telusuri.</p>
-        <input type="text" id="search" class="form-control mb-3" placeholder="Cari buku...">
-        
-        <div id="bookList"></div> <!-- Tempat untuk menampilkan daftar buku -->
+<section id="what-we-have" class="container my-5">
+  <div class="row align-items-center">
+    <div class="col-md-6">
+      <img src="https://tagajo.city-library.jp/media/001/202211/tagajo_library_082.jpg?v=20221129145906" class="img-fluid rounded shadow-sm mb-3 mb-md-0" alt="Repositori Tugas">
+    </div>
+    <div class="col-md-6">
+      <h2>Apa yang Ada di Sini?</h2>
+      <p><strong>Repositori Tugas:</strong> Temukan berbagai tugas yang telah saya kerjakan.</p>
+      <p><strong>Sumber Daya Pembelajaran:</strong> Artikel dan tutorial untuk belajar web.</p>
+      <p><strong>Kolaborasi Perpustakaan:</strong> Kami bekerja sama dengan <a href="https://library.usu.ac.id/" target="_blank">perpustakaan lain</a> untuk memberikan akses lebih luas ke koleksi buku dan sumber daya.</p>
+      <a href="about.html" class="btn btn-outline-custom mt-3">Informasi Lebih Lanjut</a>
+    </div>
+  </div>
+</section>
 
-        <h3>Event Terbaru</h3>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card event-card" onclick="window.open('https://www.instagram.com/p/DHqN_Ncv3Ve/?utm_source=ig_web_copy_link', '_blank');">
-                    <img src="WhatsApp Image 2025-04-09 at 07.58.39_bc7f5ada.jpg" class="card-img-top" alt="Event Berlangsung">
-                    <div class="card-body">
-                        <h5 class="card-title">Lomba Resensi Buku 2025</h5>
-                        <p class="card-text">Yuk, tunjukkan kreativitasmu dalam Lomba Resensi Buku 2025!.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card event-card" onclick="window.open('https://www.instagram.com/p/DHrv3wZy9yi/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank');">
-                    <img src="WhatsApp Image 2025-04-09 at 07.58.40_cc724346.jpg" class="card-img-top" alt="Upcoming Events">
-                    <div class="card-body">
-                        <h5 class="card-title">Kelas Penulisan Aksara Nusantara #5: Mengenal Aksara Jawa</h5>
-                        <p class="card-text">Yuk, kenali warisan budaya bangsa lewat Kelas Penulisan Aksara Nusantara.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card event-card" onclick="window.open('https://www.instagram.com/p/DIBgQqWPl1B/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==', '_blank');">
-                    <img src="WhatsApp Image 2025-04-09 at 08.18.40_e41a1599.jpg" class="card-img-top" alt="Event Berlangsung">
-                    <div class="card-body">
-                        <h5 class="card-title">Digital Illustration Competition2025</h5>
-                        <p class="card-text">Lomba Digital Illustration 2025 hadir untuk kamu yang siap mengubah kreativitas menjadi peluang!</p>
-                    </div>
-                </div>
-            </div>
+<section id="cariBuku" class="container my-5">
+  <h3>Cari Buku</h3>
+  <p>Gunakan fitur pencarian untuk menemukan buku pilihan Anda.</p>
+  <input type="text" id="search" class="form-control mb-3" placeholder="Cari buku...">
+  <div id="bookList"></div>
+</section>
+
+<section id="eventTerbaru" class="container my-5">
+  <h3>Event Terbaru</h3>
+  <div class="row">
+    <div class="col-md-4 mb-4">
+      <div class="card event-card" onclick="window.open('https://www.instagram.com/p/DHqN_Ncv3Ve/', '_blank')">
+        <img src="WhatsApp Image 2025-04-09 at 07.58.39_bc7f5ada.jpg" class="card-img-top" alt="Event 1">
+        <div class="card-body">
+          <h5 class="card-title">Lomba Resensi Buku 2025</h5>
+          <p class="card-text">Tunjukkan kreativitasmu dalam lomba ini!</p>
         </div>
-        <h3>Bergabunglah Bersama Kami!</h3>
-        <p>Kami berharap Anda menemukan informasi yang berguna di sini. Selamat menjelajahi dan belajar!</p>
-    </section>
-</div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card event-card" onclick="window.open('https://www.instagram.com/p/DHrv3wZy9yi/', '_blank')">
+        <img src="WhatsApp Image 2025-04-09 at 07.58.40_cc724346.jpg" class="card-img-top" alt="Event 2">
+        <div class="card-body">
+          <h5 class="card-title">Kelas Aksara Nusantara</h5>
+          <p class="card-text">Kenali aksara Jawa lewat kelas menulis ini.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 mb-4">
+      <div class="card event-card" onclick="window.open('https://www.instagram.com/p/DIBgQqWPl1B/', '_blank')">
+        <img src="WhatsApp Image 2025-04-09 at 08.18.40_e41a1599.jpg" class="card-img-top" alt="Event 3">
+        <div class="card-body">
+          <h5 class="card-title">Digital Illustration Competition</h5>
+          <p class="card-text">Wujudkan kreativitasmu lewat ilustrasi digital!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-<footer style="background-color: #134B70; color: #508C9B;"  class="text-center py-4">
-    &copy; 2025 Perpustakaan Alifiah Fitri Ariani
+<section class="container text-center my-5">
+  <h3>Bergabunglah Bersama Kami!</h3>
+  <p>Kami berharap Anda menemukan informasi yang berguna. Selamat menjelajahi!</p>
+</section>
+
+<footer class="text-center py-4">
+  &copy; 2025 Perpustakaan Alifiah Fitri Ariani
 </footer>
 
-<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-<script src="script.js"></script> <!-- Link ke file JavaScript eksternal -->
+<button class="dark-mode-toggle" onclick="toggleDarkMode()">
+  <i class="bi bi-moon-stars-fill"></i>
+</button>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  function toggleDarkMode() {
+    const body = document.body;
+    const icon = document.querySelector('.dark-mode-toggle i');
+    body.classList.toggle('dark-mode');
+    icon.classList.toggle('bi-moon-stars-fill');
+    icon.classList.toggle('bi-brightness-high');
+  }
+</script>
+
 </body>
+</html>
