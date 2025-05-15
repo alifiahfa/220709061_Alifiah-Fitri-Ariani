@@ -1,7 +1,7 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/public/index.html" },
-    { "source": "/about", "destination": "/public/about.html" },
-    { "source": "/contact", "destination": "/public/contact.html" }
-  ]
+  "functions": {
+    "api/*.php": {
+      "runtime": "vercel-php@0.7.3"
+    }
+  }
 }
