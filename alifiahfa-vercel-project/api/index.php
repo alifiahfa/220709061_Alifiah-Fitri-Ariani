@@ -31,8 +31,8 @@
 
     <div class="container my-4"> <h1>Isi lain dari website ini</h1>
         <p>Ini adalah contoh output PHP: Hello World</p>        <ul>
-            <li><a href="/api/formulir-pengunjung.php">Formulir Isian data Pengunjung</a></li>
-            <li><a href="/api/tabel.php">Tabel Perkalian</a></li>
+            <li><a href="/api/data-pengunjung.js">Formulir Isian data Pengunjung</a></li>
+            <li><a href="/api/tabel-perkalian.js">Tabel Perkalian</a></li>
             <li><a href="/index.html">Kembali ke Beranda</a></li> </ul>
     </div>
 
