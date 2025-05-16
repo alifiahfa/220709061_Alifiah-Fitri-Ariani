@@ -564,25 +564,30 @@ body.dark-mode .dropdown-menu .dropdown-item:hover {
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 
+<!-- Popup Cookie Consent -->
+<div id="cookieConsent" class="cookie-consent">
+  <p>Website ini menggunakan cookie untuk meningkatkan pengalaman Anda. Lanjutkan jika Anda menyetujui penggunaannya.</p>
+  <div class="btn-group">
+    <button id="acceptCookies" class="btn-outline-custom">Setuju</button>
+    <button id="declineCookies" class="btn-outline-danger">Tolak</button>
+  </div>
+</div>
+
+<!-- Script untuk menyembunyikan popup -->
 <script>
-  function acceptCookies() {
-    document.getElementById('cookieConsent').style.display = 'none';
-    // Simpan status ke localStorage agar popup tidak muncul lagi (opsional)
-    localStorage.setItem('cookiesAccepted', 'true');
+  // Ambil elemen
+  const cookieConsent = document.getElementById("cookieConsent");
+  const acceptBtn = document.getElementById("acceptCookies");
+  const declineBtn = document.getElementById("declineCookies");
+
+  // Fungsi untuk menyembunyikan popup
+  function hideCookieConsent() {
+    cookieConsent.style.display = "none";
   }
 
-  function declineCookies() {
-    document.getElementById('cookieConsent').style.display = 'none';
-    // Simpan status penolakan jika perlu
-    localStorage.setItem('cookiesDeclined', 'true');
-  }
-
-  // Cek apakah sudah pernah disetujui/ditolak sebelumnya
-  window.onload = function() {
-    if (localStorage.getItem('cookiesAccepted') === 'true' || localStorage.getItem('cookiesDeclined') === 'true') {
-      document.getElementById('cookieConsent').style.display = 'none';
-    }
-  }
+  // Tambahkan event listener ke tombol
+  acceptBtn.addEventListener("click", hideCookieConsent);
+  declineBtn.addEventListener("click", hideCookieConsent);
 </script>
 
 
