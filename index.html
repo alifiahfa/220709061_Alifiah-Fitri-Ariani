@@ -565,46 +565,26 @@ body.dark-mode .dropdown-menu .dropdown-item:hover {
 
 
 <script>
-  // Fungsi untuk set cookie
-  function setCookie(name, value, days) {
-    const d = new Date();
-    d.setTime(d.getTime() + (days*24*60*60*1000));
-    const expires = "expires="+ d.toUTCString();
-    document.cookie = name + "=" + value + ";" + expires + ";path=/";
+  function acceptCookies() {
+    document.getElementById('cookieConsent').style.display = 'none';
+    // Simpan status ke localStorage agar popup tidak muncul lagi (opsional)
+    localStorage.setItem('cookiesAccepted', 'true');
   }
 
-  // Fungsi untuk get cookie
-  function getCookie(name) {
-    const cname = name + "=";
-    const decodedCookie = decodeURIComponent(document.cookie);
-    const ca = decodedCookie.split(';');
-    for(let i = 0; i < ca.length; i++) {
-      let c = ca[i].trim();
-      if (c.indexOf(cname) == 0) return c.substring(cname.length, c.length);
-    }
-    return "";
+  function declineCookies() {
+    document.getElementById('cookieConsent').style.display = 'none';
+    // Simpan status penolakan jika perlu
+    localStorage.setItem('cookiesDeclined', 'true');
   }
 
-  // Cek cookie, jika belum ada tampilkan popup
+  // Cek apakah sudah pernah disetujui/ditolak sebelumnya
   window.onload = function() {
-    const consent = getCookie("cookie_consent");
-    if (consent !== "accepted" && consent !== "declined") {
-      document.getElementById("cookieConsent").style.display = "flex";
+    if (localStorage.getItem('cookiesAccepted') === 'true' || localStorage.getItem('cookiesDeclined') === 'true') {
+      document.getElementById('cookieConsent').style.display = 'none';
     }
   }
-
-  // Event klik Accept
-  document.getElementById("acceptCookie").onclick = function() {
-    setCookie("cookie_consent", "accepted", 30);
-    document.getElementById("cookieConsent").style.display = "none";
-  };
-
-  // Event klik Decline
-  document.getElementById("declineCookie").onclick = function() {
-    setCookie("cookie_consent", "declined", 30);
-    document.getElementById("cookieConsent").style.display = "none";
-  };
 </script>
+
 
 
 <script>
