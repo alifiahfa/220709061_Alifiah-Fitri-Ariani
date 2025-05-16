@@ -357,6 +357,52 @@ body.dark-mode .dropdown-menu .dropdown-item:hover {
   body.dark-mode #search::placeholder {
     color: #95a5a6;
   }
+  .scroll-btn {
+  position: fixed;
+  right: 20px;
+  background-color: #3E6D9C;
+  border: none;
+  color: white;
+  font-size: 32px;
+  border-radius: 50%;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1000;
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.3);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#scrollUp {
+  bottom: 90px; /* di atas tombol mode gelap */
+}
+
+#scrollDown {
+  bottom: 20px; /* tepat di atas tombol mode gelap */
+}
+
+/* Hover effect */
+.scroll-btn:hover {
+  background-color: #508C9B;
+  color: white;
+}
+
+/* Mode gelap */
+body.dark-mode .scroll-btn {
+  background-color: #2E3B4E;
+  color: #90caf9;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.8);
+}
+
+body.dark-mode .scroll-btn:hover {
+  background-color: #508C9B;
+  color: #121212;
+}
+
   </style>
 </head>
 <body>
@@ -491,6 +537,27 @@ body.dark-mode .dropdown-menu .dropdown-item:hover {
   <h3>Bergabunglah Bersama Kami!</h3>
   <p>Kami berharap Anda menemukan informasi yang berguna. Selamat menjelajahi!</p>
 </section>
+
+<!-- Tombol Scroll Up dan Scroll Down -->
+<button id="scrollUp" class="scroll-btn" title="Scroll ke atas">
+  <i class="bi bi-arrow-up-circle-fill"></i>
+</button>
+<button id="scrollDown" class="scroll-btn" title="Scroll ke bawah">
+  <i class="bi bi-arrow-down-circle-fill"></i>
+</button>
+
+<script>
+  // Fungsi scroll smooth ke atas
+  document.getElementById('scrollUp').addEventListener('click', () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+
+  // Fungsi scroll smooth ke bawah (scroll sampai paling bawah)
+  document.getElementById('scrollDown').addEventListener('click', () => {
+    window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+  });
+</script>
+
 
 <footer class="text-center py-4">
   &copy; 2025 Perpustakaan Alifiah Fitri Ariani
