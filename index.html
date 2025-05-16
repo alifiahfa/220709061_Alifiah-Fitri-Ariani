@@ -616,35 +616,45 @@ body.dark-mode .scroll-btn:hover {
 </button>
 
 <script>
-  function getCookie(name) {
-    const value = "; " + document.cookie;
-    const parts = value.split("; " + name + "=");
-    if (parts.length === 2) return parts.pop().split(";").shift();
-  }
-
+  // Fungsi untuk set cookie
   function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-      const date = new Date();
-      date.setTime(date.getTime() + (days*24*60*60*1000));
-      expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + value + expires + "; path=/";
+    const d = new Date();
+    d.setTime(d.getTime() + (days*24*60*60*1000));
+    const expires = "expires="+ d.toUTCString();
+    document.cookie = name + "=" + value + ";" + expires + ";path=/";
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    const cookiePopup = document.getElementById("cookiePopup");
-    const acceptBtn = document.getElementById("acceptCookie");
-
-    if (!getCookie("cookiesAccepted")) {
-      cookiePopup.classList.remove("d-none");
+  // Fungsi untuk get cookie
+  function getCookie(name) {
+    const cname = name + "=";
+    const decodedCookie = decodeURIComponent(document.cookie);
+    const ca = decodedCookie.split(';');
+    for(let i = 0; i < ca.length; i++) {
+      let c = ca[i].trim();
+      if (c.indexOf(cname) == 0) return c.substring(cname.length, c.length);
     }
+    return "";
+  }
 
-    acceptBtn.addEventListener("click", function () {
-      setCookie("cookiesAccepted", "true", 365);
-      cookiePopup.classList.add("d-none");
-    });
-  });
+  // Cek cookie, jika belum ada tampilkan popup
+  window.onload = function() {
+    const consent = getCookie("cookie_consent");
+    if (consent !== "accepted" && consent !== "declined") {
+      document.getElementById("cookieConsent").style.display = "flex";
+    }
+  }
+
+  // Event klik Accept
+  document.getElementById("acceptCookie").onclick = function() {
+    setCookie("cookie_consent", "accepted", 30);
+    document.getElementById("cookieConsent").style.display = "none";
+  };
+
+  // Event klik Decline
+  document.getElementById("declineCookie").onclick = function() {
+    setCookie("cookie_consent", "declined", 30);
+    document.getElementById("cookieConsent").style.display = "none";
+  };
 </script>
   
 <script>
