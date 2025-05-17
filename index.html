@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="refresh" content="2; url=https://alifiahfa.vercel.app/">
   <meta name="description" content="Website Perpustakaan Alifiahfa, berisi informasi tentang buku, event, dan layanan perpustakaan.">
   <title>Home | Alifiahfa's Library</title>
   <link rel="icon" href="img/books.png" type="image/x-icon" />
@@ -172,9 +171,28 @@
   </div>
 </div>
 
+<!-- VERCEL -->
+  <div class="container text-center my-5">
+    <h1>Mohon tunggu...</h1>
+    <p>Anda sedang dialihkan ke halaman utama.</p>
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
 <script src="cookie-consent.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="script.js"></script>
+<script>
+function startRedirect() {
+      setTimeout(() => {
+        document.getElementById('redirectOverlay').style.opacity = 0;
+        setTimeout(() => {
+          window.location.replace("https://alifiahfa.vercel.app/");
+        }, 1000);
+      }, 1000);
+    }
+</script>
 
 </body>
 </html>
