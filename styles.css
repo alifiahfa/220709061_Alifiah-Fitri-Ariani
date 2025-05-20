@@ -1,0 +1,999 @@
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:wght@400;700&display=swap');
+
+body {
+  font-family: 'Public Sans', sans-serif;
+  background-color: #EEEEEE;
+  color: #201E43;
+  margin: 0;
+  padding: 0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3 {
+  font-weight: bold;
+}
+
+/* h1 umum (di luar hero-section) */
+body h1 {
+  color: #ffffff;
+  margin: 1.5rem 0 1rem;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+/* h1 di dalam hero */
+.hero-section h1 {
+  color: #ffffff;
+  font-size: 3rem;
+  margin-bottom: 10px;
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+  transition: color 0.3s ease;
+}
+
+/* Saat mode gelap, warna h1 hero seperti warna tombol */
+body.dark-mode .hero-section h1 {
+  color: #90caf9;
+}
+
+
+
+h2, h3 {
+  color: #134B70;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+p {
+  line-height: 1.6;
+  margin-bottom: 15px;
+  color: #1771ad;
+}
+
+
+/* NAVBAR*/
+body.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+body.dark-mode .navbar {
+  background-color: #1e272e !important;
+}
+
+body.dark-mode footer {
+  background-color: #1e272e;
+  color: #90caf9;
+}
+
+
+/* FOOTER — mode terang */
+footer {
+  background-color: #134B70;
+  color: #EEEEEE;
+  text-align: center;
+  padding: 15px 20px;
+  font-size: 0.9em;
+  font-weight: bold;
+  line-height: 1.6;
+}
+
+/* FOOTER — mode gelap */
+body.dark-mode footer {
+  background-color: #1e272e;
+  color: #90caf9;
+}
+
+/* Bagian copyright (agar terpisah dari animasi) */
+.footer-copyright {
+  margin-bottom: 4px;
+}
+
+/* Bagian pesan animasi */
+.footer-message {
+  font-weight: bold;
+  font-size: 0.85em;
+  color: inherit;
+  min-height: 1.2em; /* cegah loncat saat huruf mulai diketik */
+}
+
+/* animasi ketik – huruf muncul satu per satu + kursor */
+.animated-text {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 2px solid currentColor;
+  animation: blink 0.7s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+
+
+/* Navbar */
+.navbar {
+  background-color: #134B70;
+}
+
+.navbar .nav-link,
+.navbar-brand {
+  color: #EEEEEE !important;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus,
+.navbar .dropdown-toggle:hover,
+.navbar .dropdown-toggle:focus {
+  background-color: #508C9B;
+  color: rgb(0, 0, 0) !important;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+
+/* Mode gelap untuk navbar dan brand */
+body.dark-mode .navbar {
+  background-color: #1e272e !important;
+}
+
+body.dark-mode .navbar .navbar-brand {
+  color: #90caf9 !important;
+  font-weight: lighter;
+}
+
+body.dark-mode .navbar .nav-link {
+  color: #90caf9 !important;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .navbar .nav-link:hover {
+  background-color: #90caf9 !important;
+  color: #121212 !important;
+  border-radius: 0.5rem;
+}
+
+
+/* Style umum untuk modal buku */
+.book-modal {
+  background-color: #ffffff;
+  color: #134B70;
+  border-radius: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 4px 20px;
+  max-width: 500px;
+  width: 100%;
+  text-align: center;
+  padding: 1.5rem 2rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Mode Gelap untuk modal buku */
+body.dark-mode .book-modal {
+  background-color: #1e1e1e;
+  color: #90caf9;
+  box-shadow: rgba(0, 0, 0, 0.7) 0px 4px 20px;
+}
+
+/* Judul modal */
+.book-modal .card-title {
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+/* Gambar sampul */
+.book-modal img {
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+}
+
+/* Paragraf */
+.book-modal .card-text {
+  margin-bottom: 1.5rem;
+  font-style: italic;
+}
+
+/* Container tombol */
+.book-modal .d-flex {
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+/* Tombol default */
+.book-modal .btn {
+  min-width: 100px;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+  border-radius: 5px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Tombol Baca PDF (primary) */
+.book-modal .btn-primary {
+  background-color: #208ed8;
+  color: white;
+  border: none;
+}
+.book-modal .btn-primary:hover {
+  background-color: #0b4b80;
+  color: #ffffff;
+}
+
+/* Tombol Download PDF (success) */
+.book-modal .btn-success {
+  background-color: #28a745;
+  color: white;
+  border: none;
+}
+.book-modal .btn-success:hover {
+  background-color: #19692c;
+  color: #ffffff;
+}
+
+/* Tombol Tutup (danger) */
+.book-modal .btn-danger {
+  background-color: #dc3545;
+  color: white;
+  border: none;
+}
+.book-modal .btn-danger:hover {
+  background-color: #8b1c23;
+  color: #ffffff;
+}
+
+/* Mode Gelap - Tombol Baca PDF */
+body.dark-mode .book-modal .btn-primary {
+  background-color: #90caf9;
+  color: #121212;
+}
+body.dark-mode .book-modal .btn-primary:hover {
+  background-color: #5a8bd4;
+  color: #ffffff;
+}
+
+/* Mode Gelap - Tombol Download PDF */
+body.dark-mode .book-modal .btn-success {
+  background-color: #66bb6a;
+  color: #121212;
+}
+body.dark-mode .book-modal .btn-success:hover {
+  background-color: #357a38;
+  color: #ffffff;
+}
+
+/* Mode Gelap - Tombol Tutup */
+body.dark-mode .book-modal .btn-danger {
+  background-color: #ef5350;
+  color: #121212;
+}
+body.dark-mode .book-modal .btn-danger:hover {
+  background-color: #a42f31;
+  color: #ffffff;
+}
+
+
+/* Hero Section */
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-section .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-section h1,
+.hero-section p {
+  text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.8);
+}
+
+.hero-section p {
+  color: #dddddd;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Event Card */
+.event-card {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: white;
+  color: #134B70;
+}
+
+.event-card:hover {
+  background-color: #134B70;
+  color: white;
+  transform: scale(1.03);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.event-card:hover .card-title,
+.event-card:hover .card-text {
+  color: white;
+}
+
+.image-wrapper {
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  border-radius: 5px 5px 0 0;
+}
+
+.card-img-top {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Tombol */
+.btn-outline-info {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+
+.btn-outline-info:hover {
+  background-color: #508C9B;
+  color: rgb(0, 0, 0);
+  border-color: #508C9B;
+}
+
+.btn-outline-custom {
+  color: #508C9B;
+  border-color: #508C9B;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-custom:hover {
+  background-color: #508C9B;
+  color: white;
+  border-color: #508C9B;
+}
+
+/* Dark Mode */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode .navbar {
+  background-color: #1f2d3d !important;
+}
+
+
+
+body.dark-mode .nav-link,
+body.dark-mode .navbar-brand,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode p {
+  color: #f0f0f0 !important;
+}
+
+body.dark-mode .hero-section p {
+  color: #90caf9;
+}
+
+body.dark-mode .btn-outline-info,
+body.dark-mode .btn-outline-custom {
+  border-color: #90caf9;
+  color: #90caf9;
+}
+
+body.dark-mode .btn-outline-info:hover,
+body.dark-mode .btn-outline-custom:hover {
+  background-color: #90caf9;
+  color: #000000;
+}
+
+body.dark-mode .event-card {
+  background-color: #90caf9;
+  color: #f0f0f0;
+}
+
+body.dark-mode .event-card:hover {
+  background-color: #90caf9;
+  color: #90caf9;
+}
+
+body.dark-mode .event-card:hover .card-title,
+body.dark-mode .event-card:hover .card-text {
+  color: #90caf9;
+}
+
+body.dark-mode .event-card .card-body {
+  background-color: #1e1e1e;
+  color: #f0f0f0;
+}
+
+body.dark-mode .event-card .card-title {
+  color: #90caf9;
+}
+
+body.dark-mode .event-card .card-text {
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 1)' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Tombol Toggle Dark Mode */
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #3E6D9C;
+  border: none;
+  color: white;
+  font-size: 24px;
+  border-radius: 50%;
+  padding: 15px;
+  cursor: pointer;
+  z-index: 1000;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.dark-mode .dark-mode-toggle {
+  background-color: #2E3B4E;
+  color: #90caf9;
+}
+
+/* Dropdown */
+.dropdown-menu {
+  background-color: #134B70;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  padding: 0.5rem 0;
+  min-width: 200px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu .dropdown-item {
+  color: #ffffff;
+  padding: 10px 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.dropdown-menu .dropdown-item:hover {
+  background-color: #508C9B;
+  color: rgb(0, 0, 0);
+}
+
+body.dark-mode .dropdown-menu {
+  background-color: #1f2d3d;
+}
+
+body.dark-mode .dropdown-menu .dropdown-item {
+  color: #f0f0f0;
+}
+
+body.dark-mode .dropdown-menu .dropdown-item:hover {
+  background-color: #90caf9;
+  color: #121212;
+}
+
+/* Responsif Navbar */
+@media (max-width: 991.98px) {
+  .navbar-nav .nav-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin: 0.3rem 0;
+  }
+
+  .navbar-nav .dropdown-menu {
+    position: static;
+    float: none;
+    background-color: #134B70;
+    box-shadow: none;
+  }
+
+  .navbar-nav .dropdown-menu .dropdown-item {
+    padding-left: 2rem;
+  }
+}
+
+/* Dark mode khusus fitur cari */
+body.dark-mode #cariBuku {
+  background-color: #1e272e;
+  color: #ecf0f1;
+  padding: 1.5rem;
+  border-radius: 8px;
+}
+
+body.dark-mode #cariBuku h3,
+body.dark-mode #cariBuku p {
+  color: #ecf0f1;
+}
+
+body.dark-mode #search {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  border: 1px solid #34495e;
+}
+
+body.dark-mode #search::placeholder {
+  color: #95a5a6;
+}
+
+
+/* Untuk teks navigasi (mode gelap) */
+.navbar-dark .nav-link {
+  color: #90caf9;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover efek */
+.navbar-dark .nav-link:hover {
+  background-color: #90caf9; /* sama seperti "Cari Buku" */
+  color: #000000;
+  border-radius: 0.5rem;
+}
+
+
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  font-weight: lighter;
+  font-size: 1.1rem;
+}
+
+.navbar-brand img {
+  height: 30px;
+  width: auto;
+  margin-right: 8px;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+
+/* Hover efek untuk brand (mode terang) */
+.navbar .navbar-brand:hover,
+.navbar .navbar-brand:focus {
+  background-color: #508C9B;
+  color: #000000 !important;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+/* Hover efek untuk brand (mode gelap) */
+body.dark-mode .navbar .navbar-brand:hover,
+body.dark-mode .navbar .navbar-brand:focus {
+  background-color: #90caf9 !important;
+  color: #121212 !important;
+  border-radius: 0.5rem;
+  padding: 0.25rem 0.5rem;
+  transition: all 0.3s ease;
+  text-decoration: none;
+}
+
+.navbar .navbar-brand {
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+}
+
+
+/* ABOUT===================================================== */
+/* === TABLE STYLE DENGAN VARIABEL UNTUK MODE CERAH === */
+/* ===================================================== */
+:root {
+  /* TERANG */
+  --table-color: #000000;           /* Teks isi tabel hitam */
+  --table-bg: #ffffff;              /* Latar tabel */
+  --table-border-color: #d0e1f3;    /* Garis tabel */
+  --table-striped-bg: #f0f7fb;      /* Striping baris */
+  --table-hover-bg: #d6ecf9;        /* Hover baris */
+  --table-head-color: #ffffff;      /* Teks header */
+  --table-head-bg: #134B70;         /* Background header */
+}
+
+body.dark-mode {
+  /* Mode gelap */
+  --table-color: #ffffff;           /* Teks isi tabel putih */
+  --table-head-color: #ffffff;      /* Teks header putih */
+
+  --table-bg: #0d2236;              /* Latar tabel */
+  --table-border-color: #24557a;    /* Garis tabel */
+  --table-striped-bg: #102c47;      /* Striping baris */
+  --table-hover-bg: #134B70;        /* Hover baris */
+  --table-head-bg: #134B70;         /* Background header */
+}
+
+.table {
+  --bs-table-color: var(--table-color);
+  --bs-table-bg: var(--table-bg);
+  --bs-table-border-color: var(--table-border-color);
+  --bs-table-striped-bg: var(--table-striped-bg);
+  --bs-table-hover-bg: var(--table-hover-bg);
+
+  width: 100%;
+  margin-bottom: 1rem;
+  color: var(--bs-table-color);
+  background-color: var(--bs-table-bg);
+  vertical-align: top;
+  border-color: var(--bs-table-border-color);
+  caption-side: bottom;
+  transition: color 0.5s ease, background-color 0.5s ease, border-color 0.5s ease;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(19, 75, 112, 0.15);
+}
+
+/* Header */
+.table thead th {
+  color: var(--table-head-color);
+  background-color: var(--table-head-bg);
+  border-bottom: 2px solid var(--bs-table-border-color);
+  transition: all 0.5s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+}
+
+/* Cell */
+.table th,
+.table td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--bs-table-border-color);
+  transition: border-color 0.5s ease;
+  color: var(--table-color);  /* pastikan teks isi selalu benar */
+}
+
+/* Striping */
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: var(--bs-table-striped-bg);
+  transition: background-color 0.5s ease;
+  color: var(--table-color);  /* teks putih di mode gelap juga */
+}
+
+/* Hover */
+.table-hover tbody tr:hover {
+  background-color: var(--bs-table-hover-bg);
+  color: var(--table-head-color);
+  transition: background-color 0.3s ease;
+}
+
+/* Override pastikan semua teks putih di dark mode */
+body.dark-mode .table,
+body.dark-mode .table th,
+body.dark-mode .table td,
+body.dark-mode .table thead th,
+body.dark-mode .table tbody tr,
+body.dark-mode .table-striped tbody tr:nth-of-type(odd) {
+  color: #ffffff !important;
+}
+
+/* CONTACT */
+/* Mode Terang */
+.contact-box {
+  border: 2px solid #134B70;         /* Outline biru */
+  border-radius: 12px;
+  padding: 2rem;
+  background-color: #f9faff;          /* Latar terang lembut */
+  box-shadow: 0 4px 12px rgba(19, 75, 112, 0.2);
+  max-width: 600px;
+  margin: 2rem auto;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
+  color: #134B70;                     /* teks warna biru gelap */
+}
+
+/* Mode Gelap */
+/* Mode Gelap */
+body.dark-mode .contact-box {
+  background-color: #1e293b;        /* Latar belakang gelap (biru keabu-abuan) */
+  border-color: #90caf9;            /* Outline biru muda */
+  color: #e0f2ff;                   /* Teks terang */
+  box-shadow: 0 4px 12px rgba(144, 202, 249, 0.1);
+}
+
+.dark-mode-toggle:hover {
+  background-color: #2E3B4E;
+  color: #90caf9;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-mode .dark-mode-toggle:hover {
+  background-color: #90caf9;
+  color: #000000;
+}
+
+
+
+
+/* TOMBOL SCROLL KE ATAS */
+/* Tombol Scroll to Top - default */
+#scrollToTopBtn {
+  position: fixed;
+  bottom: 90px; /* di atas tombol dark mode */
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background-color: #3E6D9C; /* sama dengan tombol dark mode default */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 24px;
+  display: none; /* sembunyikan awalnya */
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  transition: background-color 0.3s ease;
+}
+
+#scrollToTopBtn:hover {
+  background-color: #2E3B4E; /* hover seperti tombol dark mode toggle */
+  color: #90caf9;
+}
+
+/* Mode Gelap - ubah warna tombol scroll to top */
+body.dark-mode #scrollToTopBtn {
+  background-color: #2E3B4E;
+  color: #90caf9;
+}
+
+body.dark-mode #scrollToTopBtn:hover {
+  background-color: #3E6D9C;
+  color: rgb(0, 0, 0);
+}
+
+/* COOKIE */
+/* Overlay untuk menutupi halaman saat popup muncul */
+#cookieConsentOverlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.4);
+  z-index: 9998;
+  display: none;
+}
+
+/* Container popup cookie */
+#cookieConsent {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a2935;
+  color: #e0e6ed;
+  max-width: 420px;
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  z-index: 9999;
+  display: none;
+
+  /* Tambahan buat centering konten */
+  display: flex;
+  flex-direction: column;
+  align-items: center;    /* Horizontal center */
+  text-align: center;     /* Biar teks paragraf center */
+  gap: 15px;              /* Jarak antar elemen dalam popup */
+}
+
+
+#cookieConsent > div {
+  display: flex;
+  justify-content: center; /* tombol sejajar tengah */
+  gap: 12px;               /* jarak antar tombol */
+  width: 100%;             /* supaya tombol bisa diatur rapi */
+}
+
+/* Tombol */
+#cookieConsent {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #1a2935;
+  color: #e0e6ed;
+  max-width: 420px;
+  padding: 25px 30px;
+  border-radius: 15px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.25);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-size: 15px;
+  line-height: 1.5;
+  z-index: 9999;
+  display: none;
+
+  /* Teks rata tengah */
+  text-align: center;
+}
+
+#cookieConsent p {
+  margin: 0 0 15px;
+}
+
+/* Container tombol */
+#cookieConsent > div {
+  display: flex;
+  justify-content: center;  /* Tombol tengah */
+  gap: 12px;
+  width: 100%;
+}
+
+/* Tombol */
+#cookieConsent .btn {
+  cursor: pointer;
+  border-radius: 8px;
+  font-weight: 600;
+  padding: 10px 20px;
+  border: none;
+  font-size: 14px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+#cookieConsent .btn-accept {
+  background-color: #4caf50;
+  color: white;
+  box-shadow: 0 4px 12px rgba(76,175,80,0.5);
+}
+#cookieConsent .btn-accept:hover {
+  background-color: #43dc8a;
+}
+
+#cookieConsent .btn-reject {
+  background-color: #e74c3c;
+  color: white;
+  box-shadow: 0 4px 12px rgba(231,76,60,0.5);
+}
+#cookieConsent .btn-reject:hover {
+  background-color: #ff8b89;
+}
+
+/* Responsive */
+@media (max-width: 480px) {
+  #cookieConsent {
+    max-width: 90%;
+    padding: 20px;
+  }
+}
+
+
+/* ---------- TABEL PERKALIAN ---------- */
+body.halaman-tabel{
+  background:#f7f9fb;
+  font-family:'Public Sans',sans-serif;
+  padding:2rem;
+}
+
+/* judul */
+body.halaman-tabel h2{
+  color:#1a1a1a;
+  font-weight:700;
+  text-align:center;
+  margin-bottom:1.5rem;
+}
+
+/* wadah tabel */
+.perkalian-table{
+  width:100%;
+  max-width:800px;
+  margin:0 auto;
+  border-collapse:collapse;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 4px 10px rgba(0,0,0,.1);
+}
+
+.perkalian-table th,
+.perkalian-table td{
+  padding:14px;
+  border:1px solid #dcdcdc;
+  transition:background-color .25s,color .25s;
+  text-align:center;
+}
+
+/* header atas 1-10 */
+.perkalian-table thead th:not(:first-child){
+  background:#005b96;
+  color:#fff;
+  font-weight:600;
+}
+/* header kiri 1-10 */
+.perkalian-table tbody th{
+  background:#0074d9;
+  color:#fff;
+  font-weight:600;
+}
+/* sel “x” sudut kiri-atas */
+.perkalian-table thead th:first-child{
+  background:#04426b;
+  color:#fff;
+  font-weight:700;
+}
+
+/* sel biasa */
+.perkalian-table td{
+  background:#ffffff;
+  color:#2a2a2a;
+}
+
+/* baris genap – hanya warna dasar (boleh beda) */
+.perkalian-table tbody tr:nth-child(even) td{
+  background:#f0f6fc;
+}
+
+/* ===== HOVER (light & dark) ===== */
+.perkalian-table tbody tr td:hover{
+  background:#FFCC80 !important;   /* oranye muda */
+  color:#000 !important;
+  cursor:pointer;
+}
+
+/* ===== SELECTED (diklik) ===== */
+.perkalian-table td.selected{
+  background:#FFB74D !important;   /* oranye medium */
+  color:#000 !important;
+  font-weight:700;
+}
+
+/* ---------- DARK MODE ---------- */
+body.dark-mode{
+  background:#121212;
+  color:#e0e0e0;
+}
+body.dark-mode h2{color:#fff;}
+
+body.dark-mode .perkalian-table{
+  box-shadow:0 4px 10px rgba(0,0,0,.4);
+}
+body.dark-mode .perkalian-table th,
+body.dark-mode .perkalian-table td{
+  border-color:#303030;
+}
+/* header gelap */
+body.dark-mode .perkalian-table thead th:not(:first-child){background:#1565c0;}
+body.dark-mode .perkalian-table tbody th{background:#1976d2;}
+body.dark-mode .perkalian-table thead th:first-child{background:#0d47a1;}
+/* sel normal + genap gelap */
+body.dark-mode .perkalian-table td{background:#1e1e1e;color:#e0e0e0;}
+body.dark-mode .perkalian-table tbody tr:nth-child(even) td{background:#242424;}
+
+/* hover & selected di dark-mode – tetap oranye */
+body.dark-mode .perkalian-table tbody tr td:hover{
+  background:#FFCC80 !important;
+  color:#000 !important;
+}
+body.dark-mode .perkalian-table td.selected{
+  background:#FFB74D !important;
+  color:#000 !important;
+}
+
+/* ---------- HASIL PERKALIAN ---------- */
+.hasil-perkalian{
+  text-align:center;
+  margin-top:1.5rem;
+  font-size:1.2rem;
+  font-weight:600;
+  color:#1a1a1a;
+}
+.hasil-perkalian span{
+  margin-left:.5rem;
+  font-weight:bold;
+  color:#000;
+}
+body.dark-mode .hasil-perkalian,
+body.dark-mode .hasil-perkalian span{
+  color:#FFB74D;
+}
+

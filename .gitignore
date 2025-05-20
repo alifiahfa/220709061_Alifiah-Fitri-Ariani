@@ -1,0 +1,8 @@
+vercel.json
+package-lock.json
+package.json
+node_modules/
+api/ca.pem
+
+
+.vercel
